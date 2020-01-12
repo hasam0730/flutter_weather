@@ -64,7 +64,7 @@ class Weather extends Equatable {
 
 
 
-  Weather fromJson(dynamic json) {
+  static Weather fromJson(dynamic json) {
     final consolidateWeather = json["consolidated_weather"][0];
     return Weather(condition: _mapStringToWeatherCondition(consolidateWeather["weather_state_abbr"]),
                   formattedCondition: consolidateWeather["weather_state_name"],
@@ -80,7 +80,7 @@ class Weather extends Equatable {
 
 
 
-  WeatherCondition _mapStringToWeatherCondition(String input) {
+  static WeatherCondition _mapStringToWeatherCondition(String input) {
     switch (input) {
       case "sn": return WeatherCondition.snow; break;
       case 'sl': return WeatherCondition.sleet; break;
